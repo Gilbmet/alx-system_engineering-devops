@@ -1,1 +1,2 @@
-mkdir -m 751 my_dir
+#!/bin/bash
+chown vincent:staff*
