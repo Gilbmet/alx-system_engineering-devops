@@ -1,1 +1,1 @@
-Task 0.Where am I?
+Shell, init files, variables and expansions
