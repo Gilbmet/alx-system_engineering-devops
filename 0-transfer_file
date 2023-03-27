@@ -1,15 +1,15 @@
 #!/usr/bin/env bash
+# This script restarts the Apache server if it's not running.
 
-if [ "$#" -lt 4 ]; then
-  echo "Usage: $0 PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY"
-  exit 1
+# Check if Apache is running
+if ! pgrep -x "apache2" > /dev/null
+then
+    echo "Apache is not running. Restarting..."
+    # Restart Apache using the init.d script
+    sudo /etc/init.d/apache2 restart
+    echo "Apache has been restarted."
+else
+    echo "Apache is already running."
 fi
-
-FILE=$1
-IP=$2
-USER=$3
-SSH_KEY=$4
-
-scp -o StrictHostKeyChecking=no -i "$SSH_KEY" "$FILE" "$USER@$IP:~/"
 
 
