@@ -1,15 +1,16 @@
 #!/usr/bin/env bash
-# This script restarts the Apache server if it's not running.
 
-# Check if Apache is running
-if ! pgrep -x "apache2" > /dev/null
-then
-    echo "Apache is not running. Restarting..."
-    # Restart Apache using the init.d script
-    sudo /etc/init.d/apache2 restart
-    echo "Apache has been restarted."
-else
-    echo "Apache is already running."
+# This script transfers a file from a client to a server using scp.
+
+if [ "$#" -lt 4 ]; then
+  echo "Usage: $0 PATH_TO_FILE IP USERNAME PATH_TO_SSH_KEY"
+  exit 1
 fi
 
+PATH_TO_FILE="$1"
+IP="$2"
+USERNAME="$3"
+PATH_TO_SSH_KEY="$4"
+
+scp -o StrictHostKeyChecking=no -i "$PATH_TO_SSH_KEY" "$PATH_TO_FILE" "$USERNAME"@"$IP":~
 
