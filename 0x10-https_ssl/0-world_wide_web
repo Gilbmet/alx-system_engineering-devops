@@ -1,0 +1,26 @@
+#!/usr/bin/env bash
+
+# This script displays information about subdomains of a given domain
+
+# Usage: ./0-world_wide_web DOMAIN [SUBDOMAIN]
+
+domain=$1
+subdomain=$2
+
+# Default subdomains to check
+subdomains=("www" "lb-01" "web-01" "web-02")
+
+if [ -n "$subdomain" ]; then
+    # Only checking one subdomain
+    subdomains=("$subdomain")
+fi
+
+for subdomain in "${subdomains[@]}"; do
+    record=$(dig "$subdomain.$domain" +short)
+    if [ -n "$record" ]; then
+        # Only output if a record exists
+        record_type=$(dig "$subdomain.$domain" +short | awk '{print $1}')
+        destination=$(dig "$subdomain.$domain" +short | awk '{print $2}')
+        echo "The subdomain $subdomain is a $record_type record and points to $destination"
+    fi
+done
