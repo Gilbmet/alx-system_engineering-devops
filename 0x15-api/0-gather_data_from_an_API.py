@@ -3,13 +3,13 @@
 import requests
 import sys
 
-
 if len(sys.argv) < 2:
     print("Please provide an employee ID")
     sys.exit(1)
 
 employee_id = int(sys.argv[1])
-url = "https://jsonplaceholder.typicode.com/users/{}/todos".format(employee_id)
+url = "https://jsonplaceholder.typicode.com/users/{}/todos".format(
+    employee_id)
 
 response = requests.get(url)
 
@@ -21,9 +21,11 @@ todos = response.json()
 total_tasks = len(todos)
 completed_tasks = sum(1 for todo in todos if todo.get('completed'))
 
-employee_name = requests.get("https://jsonplaceholder.typicode.com/users/{}".format(employee_id)).json().get('name')
+employee_name = requests.get("https://jsonplaceholder.typicode.com/users/{}"
+                             .format(employee_id)).json().get('name')
 
-print("Employee {} is done with tasks({}/{}):".format(employee_name, completed_tasks, total_tasks))
+print("Employee {} is done with tasks({}/{}):".format(
+    employee_name, completed_tasks, total_tasks))
 
 for todo in todos:
     if todo.get('completed'):
