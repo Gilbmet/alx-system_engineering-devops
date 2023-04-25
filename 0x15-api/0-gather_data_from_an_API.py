@@ -18,12 +18,12 @@ if response.status_code != 200:
 
 todos = response.json()
 total_tasks = len(todos)
-completed_tasks = sum(1 for todo in todos if todo['completed'])
+completed_tasks = sum(1 for todo in todos if todo.get('completed'))
 
-employee_name = requests.get("https://jsonplaceholder.typicode.com/users/{}".format(employee_id)).json()['name']
+employee_name = requests.get("https://jsonplaceholder.typicode.com/users/{}".format(employee_id)).json().get('name')
 
 print("Employee {} is done with tasks({}/{}):".format(employee_name, completed_tasks, total_tasks))
 
 for todo in todos:
-    if todo['completed']:
-        print("\t {}".format(todo['title']))
+    if todo.get('completed'):
+        print("\t {}".format(todo.get('title')))
