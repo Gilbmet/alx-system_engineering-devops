@@ -32,4 +32,3 @@ if __name__ == '__main__':
                     task.get('title')
                 ]
                 writer.writerow(row)
-
