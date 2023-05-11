@@ -23,3 +23,33 @@ To prevent similar issues in the future, the following measures will be taken:
     Increase capacity and redundancy of the database servers to handle high traffic and prevent outages.
 
 In conclusion, the intermittent delays and errors experienced by our users were caused by slow database queries, which were resolved by optimizing the queries. We apologize for any inconvenience this may have caused our users and are taking measures to prevent similar issues in the future.
+
+Issue Summary:
+On May 10, 2023, our online marketplace experienced an unexpected slowdown that caused intermittent errors and delays for approximately 30% of our users. The issue lasted for an hour and a half, from 1:15 PM to 2:45 PM (PST).
+
+Timeline:
+
+    1:15 PM: Users start to report slow page loading and error messages.
+    1:20 PM: Our monitoring system alerts us to increased latency and errors on the application servers.
+    1:25 PM: Our team starts to investigate the network infrastructure and database servers, but finds nothing suspicious.
+    1:40 PM: Our developers start to dig into the application code with debugging tools, but the issue persists.
+    2:00 PM: Our database team and frontend team are called in to help with the investigation.
+    2:15 PM: Our database team finds a high number of slow queries, leading to slow response times and increased load on the application servers.
+    2:30 PM: The database team optimizes the slow queries, and the issue is resolved.
+    2:45 PM: The issue is fully resolved, and users can browse and purchase items without any delays or errors.
+
+Root Cause and Resolution:
+The root cause of the issue was a high number of slow queries in the database, which caused increased response times and load on the application servers. The database team optimized the slow queries, which resolved the issue and improved database performance.
+
+Corrective and Preventative Measures:
+To prevent similar issues in the future, we will:
+
+    Implement a monitoring system to alert us to slow database queries and other performance issues.
+    Optimize database queries regularly to ensure fast response times and reduce load on the application servers.
+    Increase capacity and redundancy of the database servers to handle high traffic and prevent outages.
+
+And now, for a little humor to keep things light:
+
+We know that this outage was a bummer, but we promise that we didn't do it on purpose to give our users an impromptu coffee break! In fact, we're hard at work to ensure that our marketplace stays up and running smoothly, so that you can keep shopping to your heart's content.
+
+We hope you enjoyed this little peek behind the scenes, and as always, we appreciate your business and your patience as we work to make our online marketplace the best it can be!
